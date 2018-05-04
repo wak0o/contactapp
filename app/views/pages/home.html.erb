@@ -1,2 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Mes contacts</h1>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h3><%= link_to "Ajouter", new_contact_path %></h3>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <h3><%= link_to "Liste", contacts_path %></h3>
+    </div>
+  </div>
+</div>

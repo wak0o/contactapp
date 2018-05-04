@@ -1,0 +1,30 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2><i class="fa fa-user"></i> <%= @contact.name %></h2>
+      <h3><i class="fa fa-phone"></i> <%= @contact.phone_number %></h3>
+    </div>
+
+    <div class="col-xs-12 col-sm-3">
+      <h3>Tags</h3>
+      <ul>
+        <% @contact.tags.each do |tag| %>
+          <li style="display: inline; list-style: none;">
+            <%= tag.name %>
+            <%= awesome_link('fa fa-trash', contact_tag_path(tag), method: :delete) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <h4>Ajouter</h4>
+      <%= simple_form_for [@contact, @tag] do |f| %>
+        <%= f.input :name, label: 'Tag' %>
+        <%= f.submit "Ajouter" %>
+      <% end %>
+    </div>
+  </div>
+</div>

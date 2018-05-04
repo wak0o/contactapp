@@ -1,0 +1,30 @@
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes contacts</h2>
+      <h3><%= awesome_link "fa fa-user-plus fa-2x", new_contact_path %></h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Numero</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.name %></td>
+            <td><%= contact.phone_number %></td>
+            <td><%= awesome_link "fa fa-eye fa-2x", contact_path(contact) %></td>
+            <td><%= awesome_link "fa fa-pencil-square-o fa-2x", edit_contact_path(contact) %></td>
+            <td><%= awesome_link "fa fa-trash fa-2x", contact_path(contact), data: { confirm: "Etes vous sure de vouloir suprimer ce contact ?" }, method: :delete %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

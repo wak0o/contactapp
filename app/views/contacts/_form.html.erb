@@ -1,0 +1,5 @@
+<%= simple_form_for @contact do |f| %>
+  <p><%= f.input :name, label: 'Nom' %></p>
+  <p><%= f.input :phone_number, label: 'Téléphone' %></p>
+  <%= f.submit "Valider" %>
+<% end %>
