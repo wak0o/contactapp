@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact = Contact.find(params[:id])
     @contact.destroy
-    redirect_to contacts_path
+    redirect_to contacts_path(contact_per_page: 10)
   end
 
   private
