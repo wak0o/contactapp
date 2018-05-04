@@ -1,9 +1,10 @@
 class ContactsController < ApplicationController
 
   def index
-    @contacts = Contact.all
+    @limit = params[:contact_per_page].to_i
+    offset = params[:offset].to_i * @limit ||= 0
+    @contacts = Contact.all.offset(offset).order('created_at DESC').limit(@limit)
   end
-
 
   def show
     @contact = Contact.find(params[:id])

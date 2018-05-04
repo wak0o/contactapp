@@ -7,7 +7,7 @@
       <h3><%= link_to "Ajouter", new_contact_path %></h3>
     </div>
     <div class="col-xs-12 col-sm-6">
-      <h3><%= link_to "Liste", contacts_path %></h3>
+      <h3><%= link_to "Liste", contacts_path(contact_per_page: 10) %></h3>
     </div>
   </div>
 </div>

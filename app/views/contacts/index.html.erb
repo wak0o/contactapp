@@ -3,6 +3,13 @@
     <div class="col-xs-12">
       <h2>Mes contacts</h2>
       <h3><%= awesome_link "fa fa-user-plus fa-2x", new_contact_path %></h3>
+      <% (Contact.all.size.to_f/@limit).ceil.times do |n| %>
+        <%= link_to (n + 1).to_s, contacts_path(offset: n, contact_per_page: @limit) %>
+      <% end %>
+
+      <h4><%= link_to "20", contacts_path(contact_per_page: 20), class: "btn btn-primary" %>
+          <%= link_to "50", contacts_path(contact_per_page: 50), class: "btn btn-primary" %>
+      </h4>
       <table class="table">
         <thead>
           <tr>
